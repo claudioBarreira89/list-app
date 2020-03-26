@@ -4,13 +4,18 @@
     "description": "App that lists and filters items",
     "main": "index.tsx",
     "scripts": {
-        "start": "webpack-dev-server --mode development --open",
+        "server": "node ./server/index.js",
+        "start": "npm run server & webpack-dev-server --mode development --open",
         "build": "webpack --mode production"
     },
     "author": "Cláudio Barreira",
     "dependencies": {
+        "cors": "^2.8.5",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
+        "react-redux": "^7.1.1",
+        "redux": "^4.0.4",
+        "redux-thunk": "^2.3.0",
         "styled-components": "^5.0.1",
         "typescript": "^3.8.3"
     },
@@ -23,11 +28,15 @@
         "@types/react-dom": "^16.9.5",
         "@types/styled-components": "^5.0.1",
         "babel-loader": "^7.1.4",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
         "html-loader": "^1.0.0",
         "html-webpack-plugin": "^4.0.1",
         "ts-loader": "^6.2.2",
         "webpack": "^4.19.1",
         "webpack-cli": "^3.1.1",
-        "webpack-dev-server": "^3.8.2"
-    }
+        "webpack-dev-server": "^3.8.2",
+        "redux-devtools-extension": "^2.13.8"
+    },
+    "proxy": "http://localhost:3001/"
 }
