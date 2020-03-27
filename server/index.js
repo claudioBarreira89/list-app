@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/api/data", (req, res) => {
     res.setHeader("Content-Type", "application/json");
-    const { page, category, search } = req.query;
+    const { page, category, search, changePage } = req.query;
     const number = page > 0 ? +page : 1;
 
     let filtered = [...data];
@@ -52,7 +52,7 @@ app.get("/api/data", (req, res) => {
         JSON.stringify({
             data: paged.length ? paged[number - 1] : null,
             numberOfPages: paged.length,
-            currentPage: number
+            currentPage: +changePage ? number : 1
         })
     );
 });

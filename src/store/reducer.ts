@@ -27,6 +27,7 @@ export const appReducer = (state = initialState, action) => {
         case actionTypes.SET_DATA: {
             return {
                 ...state,
+                data: payload.data,
                 ...payload
             };
         }

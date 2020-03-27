@@ -24,9 +24,10 @@ export const fetchData = (page?: number) => async (dispatch, getState) => {
         const pageParam = `page=${page || state.currentPage}`;
         const categoryParam = `category=${state.category}`;
         const searchParam = `search=${state.searchQuery}`;
+        const changePage = `changePage=${page ? 1 : 0}`;
 
         const query = `${url +
-            endpoint}?${pageParam}&${categoryParam}&${searchParam}`;
+            endpoint}?${pageParam}&${categoryParam}&${searchParam}&${changePage}`;
 
         const response = await fetch(query);
         const json = await response.json();
