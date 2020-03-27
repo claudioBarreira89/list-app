@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledWrapper } from "./styles";
-import NavBar from "../NavBar";
+import NavBar from "../../containers/NavBarContainer";
 import ListWrapper from "../../containers/ListWrapperContainer";
 
 const AppWrapper = () => {

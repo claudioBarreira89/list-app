@@ -8,6 +8,7 @@ const literals = {
             "Channels",
             "Dialer",
             "Optimization",
+            "Productivity",
             "Reporting",
             "Voice Analytics"
         ]
@@ -16,7 +17,8 @@ const literals = {
         placeholder: "Search by App"
     },
     list: {
-        free: "Free"
+        free: "Free",
+        noResults: "No Results found"
     }
 };
 

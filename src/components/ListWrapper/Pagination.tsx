@@ -18,7 +18,10 @@ export const Pagination: React.FunctionComponent<IPagination> = ({
 
     return (
         <StyledPagination>
-            <li onClick={() => validPrevPage && handleClick(currentPage - 1)}>
+            <li
+                onClick={() => validPrevPage && handleClick(currentPage - 1)}
+                className={!validPrevPage ? "disabled" : ""}
+            >
                 <a>&lt;</a>
             </li>
             {pages.map((el, i) => (
@@ -30,7 +33,10 @@ export const Pagination: React.FunctionComponent<IPagination> = ({
                     <a>{i + 1}</a>
                 </li>
             ))}
-            <li onClick={() => validNextPage && handleClick(currentPage + 1)}>
+            <li
+                onClick={() => validNextPage && handleClick(currentPage + 1)}
+                className={!validNextPage ? "disabled" : ""}
+            >
                 <a>&gt;</a>
             </li>
         </StyledPagination>

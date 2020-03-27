@@ -112,4 +112,9 @@ export const StyledPagination = styled.ul<IStyledPagination>`
         color: ${colors.white};
         pointer-events: none;
     }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0;
+    }
 `;

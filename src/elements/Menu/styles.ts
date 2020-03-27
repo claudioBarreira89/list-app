@@ -32,17 +32,12 @@ export const StyledMenu = styled.div<IStyledMenu>`
         transition: background 0.3s ease-in-out;
     }
 
-    ${({ selected }) =>
-        selected &&
-        `
-        li {
-            background-color: rgb(87, 87, 206);
-            color: ${colors.white};
-        }
+    .selected {
+        background-color: rgb(87, 87, 206);
+        color: ${colors.white};
+    }
 
-        li a {
-            color: ${colors.teal};
-        }
-        
-        `}
+    .selected a {
+        color: ${colors.teal};
+    }
 `;

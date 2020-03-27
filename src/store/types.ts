@@ -1,5 +1,7 @@
 export enum actionTypes {
-    SET_DATA = "SET_DATA"
+    SET_DATA = "SET_DATA",
+    SET_CATEGORY = "SET_CATEGORY",
+    SET_SEARCH_QUERY = "SET_SEARCH_QUERY"
 }
 
 export interface IInitialSate {

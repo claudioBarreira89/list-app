@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ListWrapper from "../components/ListWrapper";
-import { fetchData } from "../store/actions";
+import { fetchData, setSearchQuery } from "../store/actions";
 import { IInitialSate } from "../store/types";
 
 const mapStateToProps = (state: IInitialSate) => ({
@@ -10,7 +10,8 @@ const mapStateToProps = (state: IInitialSate) => ({
 });
 
 const mapDispatchToProps = {
-    fetchData
+    fetchData,
+    setSearchQuery
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListWrapper);

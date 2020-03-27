@@ -5,12 +5,28 @@ export const setData = (data: IDataItem[]) => ({
     payload: data
 });
 
-export const fetchData = page => async (dispatch, getState) => {
+export const setCategory = (item: string) => ({
+    type: actionTypes.SET_CATEGORY,
+    payload: item
+});
+
+export const setSearchQuery = (value: string) => ({
+    type: actionTypes.SET_SEARCH_QUERY,
+    payload: value
+});
+
+export const fetchData = (page?: number) => async (dispatch, getState) => {
     const url = `http://${location.hostname}:3001`;
+    const endpoint = "/api/data";
     const state = getState();
 
     try {
-        const query = `${url}/api/data?page=${page || state.currentPage}`;
+        const pageParam = `page=${page || state.currentPage}`;
+        const categoryParam = `category=${state.category}`;
+        const searchParam = `search=${state.searchQuery}`;
+
+        const query = `${url +
+            endpoint}?${pageParam}&${categoryParam}&${searchParam}`;
 
         const response = await fetch(query);
         const json = await response.json();

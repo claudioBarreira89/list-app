@@ -9,12 +9,14 @@ import { IDataItem } from "../../store/types";
 interface IListWrapper {
     list: IDataItem[];
     fetchData: (page?: number) => void;
+    setSearchQuery: (value: string) => void;
     currentPage: number;
     numberOfPages: number;
 }
 
 const ListWrapper: React.FunctionComponent<IListWrapper> = ({
     fetchData,
+    setSearchQuery,
     list,
     currentPage,
     numberOfPages
@@ -23,17 +25,27 @@ const ListWrapper: React.FunctionComponent<IListWrapper> = ({
         fetchData();
     }, []);
 
+    const handleChange = value => {
+        setSearchQuery(value);
+        fetchData();
+    };
+
     return (
         <StyledListWrapper>
             <header>
-                <InputField placeholder={literals.inputfield.placeholder} />
+                <InputField
+                    placeholder={literals.inputfield.placeholder}
+                    handleChange={handleChange}
+                />
             </header>
             <List items={list} />
-            <Pagination
-                currentPage={currentPage}
-                numberOfPages={numberOfPages}
-                handleClick={fetchData}
-            />
+            {numberOfPages > 1 && (
+                <Pagination
+                    currentPage={currentPage}
+                    numberOfPages={numberOfPages}
+                    handleClick={fetchData}
+                />
+            )}
         </StyledListWrapper>
     );
 };
