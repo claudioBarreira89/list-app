@@ -11,6 +11,7 @@ app.get("/api/data", (req, res) => {
     res.setHeader("Content-Type", "application/json");
     const { page, category, search, changePage } = req.query;
     const number = page > 0 ? +page : 1;
+    const pageNumber = +changePage ? number : 1;
 
     let filtered = [...data];
 
@@ -50,9 +51,9 @@ app.get("/api/data", (req, res) => {
 
     res.send(
         JSON.stringify({
-            data: paged.length ? paged[number - 1] : null,
+            data: paged.length ? paged[pageNumber - 1] : null,
             numberOfPages: paged.length,
-            currentPage: +changePage ? number : 1
+            currentPage: pageNumber
         })
     );
 });
